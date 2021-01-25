@@ -12,6 +12,13 @@ console.log(path.join(__dirname, '../'));
 const publicDirectoryPath = path.join(__dirname, '../public');
 console.log(publicDirectoryPath);
 
+// setting hbs templating engine for express
+// need to be exact match for engine and module
+// this would require the app.get for the route to 
+// be in place again but instead of send it needs to render
+// make sure to delete the static index.html from public
+app.set('view engine', 'hbs');
+
 // serving public directory from express
 // with this in place now the root path of the app '/'
 // will serve html file from the public folder
@@ -43,6 +50,10 @@ app.use(express.static(publicDirectoryPath));
 //     }
 //   ]);
 // });
+
+app.get('', (req, res) => {
+  res.render('index');
+})
 
 // below code is replaced by about.html from public
 // access it as http://localhost:3000/about.html
