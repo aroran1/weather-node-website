@@ -51,10 +51,6 @@ app.use(express.static(publicDirectoryPath));
 //   ]);
 // });
 
-app.get('', (req, res) => {
-  res.render('index');
-})
-
 // below code is replaced by about.html from public
 // access it as http://localhost:3000/about.html
 // app.get('/about', (req, res) => {
@@ -62,6 +58,30 @@ app.get('', (req, res) => {
 // });
 
 
+// Handlebars template rendering routes
+// app root
+app.get('', (req, res) => {
+  res.render('index', {
+    title: 'Weather App',
+    name: 'Nidhi Arora'
+  });
+})
+
+// about root
+app.get('/about', (req, res) => {
+  res.render('about', {
+    title: 'About Me',
+    name: 'Nidhi Arora'
+  });
+})
+
+// help root
+app.get('/help', (req, res) => {
+  res.render('help', {
+    title: 'Help',
+    helpText: 'This is some helpful text.'
+  });
+})
 
 app.get('/weather', (req, res) => {
   res.send({
