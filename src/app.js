@@ -1,7 +1,22 @@
+const path = require('path');
 const express = require('express');
 
 // creates app
 const app = express();
+
+console.log(__dirname);
+console.log(__filename);
+console.log(path.join(__dirname, '../'));
+
+// setting public directory path
+const publicDirectoryPath = path.join(__dirname, '../public');
+console.log(publicDirectoryPath);
+
+// serving public directory from express
+// with this in place now the root path of the app '/'
+// will serve html file from the public folder
+// so the bade root get can be removed
+app.use(express.static(publicDirectoryPath));
 
 // return response when app root is requested
 app.get('', (req, res) => {
