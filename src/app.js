@@ -85,6 +85,26 @@ app.get('/weather', (req, res) => {
   });
 });
 
+app.get('/help/*', (req, res) => {
+  // res.send('Help article not found!');
+  res.render('pageNotFound', {
+    title: '404 Help - Page Not Found',
+    name: 'Nidhi Arora',
+    errorMsg: 'Help article not found!'
+  });
+});
+
+// * matches to any route that hasn't been specified above
+// this needs to sit near the bottom after all other routes has been setup
+app.get('*', (req, res) => {
+  // res.send('My 404 page');
+  res.render('pageNotFound', {
+    title: '404 - Page Not Found',
+    name: 'Nidhi Arora',
+    errorMsg: 'Generic page not found!'
+  });
+});
+
 // starts the server and keeps it running on provided port
 app.listen('3000', () => {
   console.log('Listening to port 3000');
