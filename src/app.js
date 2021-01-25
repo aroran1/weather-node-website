@@ -18,31 +18,40 @@ console.log(publicDirectoryPath);
 // so the bade root get can be removed
 app.use(express.static(publicDirectoryPath));
 
-// return response when app root is requested
-app.get('', (req, res) => {
-  res.send('<h1>Hello express!</h1>');
-});
+// below code is replaced by index.html from public
+// // return response when app root is requested
+// app.get('', (req, res) => {
+//   res.send('<h1>Hello express!</h1>');
+// });
 
-// more app routes
-app.get('/help', (req, res) => {
-  res.send([
-    {
-      name: 'Andrew',
-      age: 27
-    },
-    {
-      name: 'Mike',
-      age: 22
-    },
-    {
-      name: 'Sarah',
-      age: 32
-    }
-  ]);
-});
-app.get('/about', (req, res) => {
-  res.send('<h1>About us</h1>');
-});
+// below code is replaced by help.html from public
+// access it as http://localhost:3000/help.html
+// // more app routes
+// app.get('/help', (req, res) => {
+//   res.send([
+//     {
+//       name: 'Andrew',
+//       age: 27
+//     },
+//     {
+//       name: 'Mike',
+//       age: 22
+//     },
+//     {
+//       name: 'Sarah',
+//       age: 32
+//     }
+//   ]);
+// });
+
+// below code is replaced by about.html from public
+// access it as http://localhost:3000/about.html
+// app.get('/about', (req, res) => {
+//   res.send('<h1>About us</h1>');
+// });
+
+
+
 app.get('/weather', (req, res) => {
   res.send({
     forcast: '32 degress celcius',
