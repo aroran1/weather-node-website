@@ -1,7 +1,8 @@
 const path = require('path');
 const express = require('express');
+const hbs = require('hbs');
 
-// creates app
+// creates a new instance of the application
 const app = express();
 
 console.log(__dirname);
@@ -10,7 +11,10 @@ console.log(path.join(__dirname, '../'));
 
 // setting public directory path
 const publicDirectoryPath = path.join(__dirname, '../public');
-console.log(publicDirectoryPath);
+const viewDirectoryPath = path.join(__dirname, '../templates/views');
+const partialsDirectoryPath = path.join(__dirname, '../templates/partials');
+
+// console.log(publicDirectoryPath);
 
 // setting hbs templating engine for express need to be exact match for engine and module this would require the 
 // app.get for the route to  be in place again but instead of send it needs to render make sure to delete the 
@@ -18,8 +22,8 @@ console.log(publicDirectoryPath);
 app.set('view engine', 'hbs');
 
 // customise views directory by following for handlebars folder
-const viewDirectoryPath = path.join(__dirname, '../templates');
 app.set('views', viewDirectoryPath);
+hbs.registerPartials(partialsDirectoryPath);
 
 // serving public directory from express with this in place now the root path of the app '/' will serve html file from the public folder so the bade root get can be removed
 app.use(express.static(publicDirectoryPath));
@@ -35,18 +39,9 @@ app.use(express.static(publicDirectoryPath));
 // more app routes
 // app.get('/help', (req, res) => {
 //   res.send([
-//     {
-//       name: 'Andrew',
-//       age: 27
-//     },
-//     {
-//       name: 'Mike',
-//       age: 22
-//     },
-//     {
-//       name: 'Sarah',
-//       age: 32
-//     }
+//     { name: 'Andrew', age: 27 },
+//     { name: 'Mike', age: 22 },
+//     { name: 'Sarah', age: 32 }
 //   ]);
 // });
 
@@ -78,6 +73,7 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
   res.render('help', {
     title: 'Help',
+    name: 'Nidhi Arora',
     helpText: 'This is some helpful text.'
   });
 })
