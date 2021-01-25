@@ -1,0 +1,1 @@
+console.log('Client app.js javascript file is loaded!');
