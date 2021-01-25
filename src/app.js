@@ -12,28 +12,27 @@ console.log(path.join(__dirname, '../'));
 const publicDirectoryPath = path.join(__dirname, '../public');
 console.log(publicDirectoryPath);
 
-// setting hbs templating engine for express
-// need to be exact match for engine and module
-// this would require the app.get for the route to 
-// be in place again but instead of send it needs to render
-// make sure to delete the static index.html from public
+// setting hbs templating engine for express need to be exact match for engine and module this would require the 
+// app.get for the route to  be in place again but instead of send it needs to render make sure to delete the 
+// static index.html from public express by default expect the template engine to be in views folder
 app.set('view engine', 'hbs');
 
-// serving public directory from express
-// with this in place now the root path of the app '/'
-// will serve html file from the public folder
-// so the bade root get can be removed
+// customise views directory by following for handlebars folder
+const viewDirectoryPath = path.join(__dirname, '../templates');
+app.set('views', viewDirectoryPath);
+
+// serving public directory from express with this in place now the root path of the app '/' will serve html file from the public folder so the bade root get can be removed
 app.use(express.static(publicDirectoryPath));
 
 // below code is replaced by index.html from public
-// // return response when app root is requested
+// return response when app root is requested
 // app.get('', (req, res) => {
 //   res.send('<h1>Hello express!</h1>');
 // });
 
 // below code is replaced by help.html from public
 // access it as http://localhost:3000/help.html
-// // more app routes
+// more app routes
 // app.get('/help', (req, res) => {
 //   res.send([
 //     {
