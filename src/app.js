@@ -5,18 +5,34 @@ const app = express();
 
 // return response when app root is requested
 app.get('', (req, res) => {
-  res.send('Hello express!');
+  res.send('<h1>Hello express!</h1>');
 });
 
 // more app routes
 app.get('/help', (req, res) => {
-  res.send('Help Page');
+  res.send([
+    {
+      name: 'Andrew',
+      age: 27
+    },
+    {
+      name: 'Mike',
+      age: 22
+    },
+    {
+      name: 'Sarah',
+      age: 32
+    }
+  ]);
 });
 app.get('/about', (req, res) => {
-  res.send('About Page');
+  res.send('<h1>About us</h1>');
 });
 app.get('/weather', (req, res) => {
-  res.send('Weather Page');
+  res.send({
+    forcast: '32 degress celcius',
+    location: 'London'
+  });
 });
 
 // starts the server and keeps it running on provided port
