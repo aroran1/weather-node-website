@@ -2,6 +2,11 @@ body {
   background-color: white;
   margin: 0;
   padding: 0;
+  color: #7a7a7a;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .wrapper {
@@ -16,7 +21,8 @@ body {
 
 .page {
   padding: 20px;
-  min-height: 500px;
+  flex-grow: 1;
+  width: 100%;
 }
 
 .header ul {
@@ -27,22 +33,33 @@ body {
 .header li {
   display: inline;
   padding: 0 10px 0 0;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .header li a {
   text-decoration: none;
+  color: #7a7a7a;
 }
 
 .header li a:hover {
   text-decoration: underline;
 }
 
-h1, li {
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
+h1, li, p {
+  color: #333333;
+  font-size: 1.8em;
+  padding: 0 0 20px;
+}
+
+p, li {
+  font-size: 1.2em;
 }
 
 .footer {
   text-align: right;
+}
+
+.footer p {
+  font-size: 1em;
+  color: #7a7a7a;
 }
