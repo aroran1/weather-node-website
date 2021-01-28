@@ -79,9 +79,31 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
+  if(!req.query.address) {
+    return res.send({
+      error: 'You must provide an address!'
+    });
+  }
   res.send({
     forcast: '32 degress celcius',
-    location: 'London'
+    location: 'London',
+    address: req.query.address
+  });
+});
+
+
+// Example for queries
+// first run http://localhost:3000/products >> returns { products: []}
+// first run http://localhost:3000/products?search=games&rating=5 >> returns { error: "You must pass the search query!" }
+app.get('/products', (req, res) => {
+  console.log(req.query)
+  if( !req.query.search ) {
+    return res.send({
+      error: 'You must pass the search query!'
+    });
+  }
+  res.send({
+    products: []
   });
 });
 
@@ -104,6 +126,7 @@ app.get('*', (req, res) => {
     errorMsg: 'Generic page not found!'
   });
 });
+
 
 // starts the server and keeps it running on provided port
 app.listen('3000', () => {
