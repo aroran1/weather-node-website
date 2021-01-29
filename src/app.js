@@ -1,6 +1,8 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
+const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
 
 // creates a new instance of the application
 const app = express();
@@ -84,11 +86,29 @@ app.get('/weather', (req, res) => {
       error: 'You must provide an address!'
     });
   }
-  res.send({
-    forcast: '32 degress celcius',
-    location: 'London',
-    address: req.query.address
+
+  geocode(req.query.address, (error, {latitude, longitude, location}) => {
+    if(error) {
+      return res.send({ error });
+    }
+    forecast(latitude, longitude, (error, response) => {
+      if(error) {
+        return res.send({ error });
+      }
+      console.log(`${response.description} - It is currently ${response.temperature} degrees Fahrenheit out but it feels like ${response.feelslike} degrees in ${location}.`);
+      res.send({
+        description: response.description,
+        temperature: response.temperature,
+        feelslike: response.feelslike,
+        location: location
+      });
+    });
   });
+  // res.send({
+  //   forcast: '32 degress celcius',
+  //   location: 'London',
+  //   address: req.query.address
+  // });
 });
 
 
