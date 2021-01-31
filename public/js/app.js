@@ -19,7 +19,7 @@ fetch('https://puzzle.mead.io/puzzle')
 });
 
 // weather fetch
-fetch('/weather?address=boston')
+const fetchWeather = (url) => fetch(url)
 .then(response => {
   return response.json();
 })
@@ -31,3 +31,14 @@ fetch('/weather?address=boston')
     console.log(data.msg);
   }
 })
+
+const weatherForm = document.querySelector('form');
+const search = document.querySelector('input');
+weatherForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const location = search.value;
+  console.log(location);
+
+  const url = `/weather?address=${location}`
+  fetchWeather(url);
+});
