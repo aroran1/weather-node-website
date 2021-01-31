@@ -87,7 +87,7 @@ app.get('/weather', (req, res) => {
     });
   }
 
-  geocode(req.query.address, (error, {latitude, longitude, location}) => {
+  geocode(req.query.address, (error, {latitude, longitude, location} = {}) => {
     if(error) {
       return res.send({ error });
     }
@@ -95,12 +95,13 @@ app.get('/weather', (req, res) => {
       if(error) {
         return res.send({ error });
       }
-      console.log(`${response.description} - It is currently ${response.temperature} degrees Fahrenheit out but it feels like ${response.feelslike} degrees in ${location}.`);
+      // console.log(`${response.description} - It is currently ${response.temperature} degrees Fahrenheit out but it feels like ${response.feelslike} degrees in ${location}.`);
       res.send({
         description: response.description,
         temperature: response.temperature,
         feelslike: response.feelslike,
-        location: location
+        location: location,
+        msg: `${response.description} - It is currently ${response.temperature} degrees Fahrenheit out but it feels like ${response.feelslike} degrees in ${location}.`
       });
     });
   });
