@@ -48,11 +48,24 @@ body {
 h1, li, p {
   color: #333333;
   font-size: 1.8em;
-  padding: 0 0 20px;
+  padding: 0 0 16px;
 }
 
 p, li {
   font-size: 1.2em;
+}
+
+input {
+  border: 1px solid #cccccc;
+  padding: 8px;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #888;
+  background-color: #888;
+  color: #fff;
+  padding: 8px;
 }
 
 .footer {
