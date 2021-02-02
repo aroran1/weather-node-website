@@ -3,19 +3,22 @@
   "description": "```\r nodemon src/app.js -e js,hbs\r ```",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
-  "scripts": {
-    "start": "node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aroran1/weather-node-website"
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   },
   "dependencies": {
     "express": "^4.17.1",
     "hbs": "^4.1.1",
     "request": "^2.88.2"
+  },
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js -e js,hbs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aroran1/weather-node-website"
   },
   "author": "",
   "license": "ISC",
