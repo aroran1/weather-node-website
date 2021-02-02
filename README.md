@@ -5,6 +5,11 @@
 nodemon src/app.js -e js,hbs
 ```
 
+## APIs
+- https://www.weatherstack.com/[https://www.weatherstack.com/]
+- https://www.mapbox.com/[https://www.mapbox.com/]
+
+
 ## Heroku
 
 Heroku :https://devcenter.heroku.com/ 
@@ -30,6 +35,8 @@ origin
 ```
 
 - Run `git push heroku master`. This will deploy the app and if build successfully, its accessibile  from https://aroran-weather-app.herokuapp.com/ 
+
+`https://aroran-weather-app.herokuapp.com/` is a default url at heroku.com. If you purchadse your own url you can configure your dns records to work with your heroku application to have completely custom application.
 
 
 ### App Path
