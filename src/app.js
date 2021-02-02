@@ -103,8 +103,9 @@ app.get('/weather', (req, res) => {
         description: response.description,
         temperature: response.temperature,
         feelslike: response.feelslike,
+        humidity: response.humidity,
         location: location,
-        msg: `${response.description} - It is currently ${response.temperature} degrees Fahrenheit out but it feels like ${response.feelslike} degrees in ${location}.`
+        msg: `${response.description} - It is currently ${response.temperature} degrees Fahrenheit out but it feels like ${response.feelslike} degrees in ${location}. Humidity is ${response.humidity}%.`
       });
     });
   });
