@@ -1,7 +1,26 @@
 {
+  "name": "weather-website-node",
+  "description": "```\r nodemon src/app.js -e js,hbs\r ```",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aroran1/weather-node-website"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "hbs": "^4.1.1",
     "request": "^2.88.2"
-  }
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aroran1/web-server/issues"
+  },
+  "homepage": "https://github.com/aroran1/web-server#readme"
 }

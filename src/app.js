@@ -7,6 +7,9 @@ const forecast = require('./utils/forecast');
 // creates a new instance of the application
 const app = express();
 
+// a new port gets set by heroku on the OS level and can be accessed for the production by process.env.PORT
+const PORT = process.env.PORT || 3000;
+
 console.log(__dirname);
 console.log(__filename);
 console.log(path.join(__dirname, '../'));
@@ -150,6 +153,6 @@ app.get('*', (req, res) => {
 
 
 // starts the server and keeps it running on provided port
-app.listen('3000', () => {
-  console.log('Listening to port 3000');
+app.listen(PORT, () => {
+  console.log(`Listening to port ${PORT}`);
 });
